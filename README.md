@@ -7,9 +7,9 @@ This is an implementation of the dolev-strong protocol, as outlined in lecture 2
 Dolev-Strong is a simple protocol for Byzantine Broadcast, the problem of a single node (known as the sender) broadcasting a value and having all nodes that follow this protocol agree on the same value. 
 
 Precisely, a protocol solving Byzantine Broadcast has the following properties: 
-- Termination: Each honest node eventually outputs some value. 
-- Agreement: All honest nodes output the same value. 
-- Validity: If sender is honest, all honest nodes output the value that the sender broadcasts. 
+- **Termination**: Each honest node eventually outputs some value. 
+- **Agreement**: All honest nodes output the same value. 
+- **Validity**: If sender is honest, all honest nodes output the value that the sender broadcasts. 
 
 ## The Protocol
 The protocol involves all honest nodes comparing notes among each other for the values sent by the sender. The goal is to catch a byzantine sender red-handed, by comparing notes that have come from the sender. If the sender is caught sending multiple values, then nodes know to ignore this sender and output `⊥` - representing a null output. 
@@ -21,10 +21,10 @@ The protocol detail is explained in comments in the file `node.erl`.
 ## Assumptions 
 
 The dolev-strong protocol is applicable under the assumptions: 
-- PKI: Public Key infrastructure is in place before the protocol starts
-- Permissioned: IP of all nodes, and in particular that of the sender, is known when the protocol starts (although sender might be byzantine)
-- Byzantine: Number of faulty nodes is known (`f`/`LittleF`) and `f < N`
-- Synchronicity: Synchronous network. All messages arrive within the next timestep. No guarantee on order of delivery within a timestep. 
+- **PKI**: Public Key infrastructure is in place before the protocol starts
+- **Permissioned**: IP of all nodes, and in particular that of the sender, is known when the protocol starts (although sender might be byzantine)
+- **Byzantine**: Number of faulty nodes is known (`f`/`LittleF`) and `f < N`
+- **Synchronicity**: Synchronous network. All messages arrive within the next timestep. No guarantee on order of delivery within a timestep. 
 
 ## Implementation
 This implementation of Dolev-Strong is written in [Erlang](https://www.youtube.com/watch?v=BXmOlCy0oBM&ab_channel=CH1LLW4VE). Why Erlang? Erlang is a simple functional process-based language. What are distributed networks if not simple message-passing systems? Also the default [Arweave node](https://github.com/ArweaveTeam/arweave/tree/master/apps/arweave/src) is written in Erlang. 
