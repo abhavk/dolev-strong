@@ -27,7 +27,8 @@ The dolev-strong protocol is applicable under the assumptions:
 - **Synchronicity:** Synchronous network. All messages arrive within the next timestep. No guarantee on order of delivery within a timestep. 
 
 ## Implementation
-This implementation of Dolev-Strong is written in [Erlang](https://www.youtube.com/watch?v=BXmOlCy0oBM&ab_channel=CH1LLW4VE). Why Erlang? Erlang is a simple functional process-based language. What are distributed networks if not simple message-passing systems? Also the default [Arweave node](https://github.com/ArweaveTeam/arweave/tree/master/apps/arweave/src) is written in Erlang. 
+This implementation of Dolev-Strong is written in [Erlang](https://www.youtube.com/watch?v=BXmOlCy0oBM&ab_channel=CH1LLW4VE). Why Erlang? 
+Erlang is a simple functional process-based language. What are distributed networks if not simple message-passing systems? Also the default [Arweave node](https://github.com/ArweaveTeam/arweave/tree/master/apps/arweave/src) is written in Erlang. 
 
 The implementation outlines 2 basic behaviours, one for the network, and one for the node. 
 
